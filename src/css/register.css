@@ -1,0 +1,58 @@
+@import "null.css";
+
+body{
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #191726;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-autor{
+    width: 400px;
+    margin: 0 auto;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.input{
+    margin: 5px 0;
+    border: unset;
+    outline: none;
+    padding: 5px 2px;
+    border-bottom: 1.5px solid #737E93;
+}
+label{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+}
+.form__button{
+    border: none;
+    display: block;
+    border-radius: 4px;
+    background: #BF304A;
+    padding: 10px 20px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+
+    width: 189px;
+    margin: 10px auto;
+    
+}
+.form__button:hover{
+    background: #D85068;
+}
+.hint{
+    font-weight: normal;
+    font-size: 14px;
+}
+.sign-link{
+    display: inline-block;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration-line: underline;
+    margin-left: 8px;
+    color: #BF304A;
+}
