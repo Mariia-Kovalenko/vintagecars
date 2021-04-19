@@ -2,7 +2,7 @@
 session_start();
 require_once "connect.php";
 
-$carselect = mysqli_query($connection, "select idcar, model, price, mileage, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 9");
+$carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 100");
 
 ?>
 
@@ -217,73 +217,24 @@ $carselect = mysqli_query($connection, "select idcar, model, price, mileage, cou
     <div class="catalogue catalogue-list">
         <div class="container">
             <div class="catalogue__items">
-                <div class="catalogue__item">
-                    <div class="item__img"><img src="/src/img/cars/Ford Torino.jpg" width="340px" alt="car"></div>
-                    <p class="item__name">Ford Torino</p>
-                    <ul class="item__desc">
-                        <li>10564</li>
-                        <li>140 miles</li>
-                        <li>USA</li>
-                        <li>2015</li>
-                    </ul>
-                    <a href="#" class="more-button">More</a>
-                </div>
-                <div class="catalogue__item">
-                    <div class="item__img"><img src="/src/img/cars/chevrolet Impala.jpg" width="340px" alt="car"></div>
-                    <p class="item__name">Chevrolet Impala</p>
-                    <ul class="item__desc">
-                        <li>10264</li>
-                        <li>220 miles</li>
-                        <li>USA</li>
-                        <li>2014</li>
-                    </ul>
-                    <a href="#" class="more-button">More</a>
-                </div>
-                <div class="catalogue__item">
-                    <div class="item__img"><img src="/src/img/cars/plymouth fury.jpg" width="340px" alt="car"></div>
-                    <p class="item__name">Plymouth Fury iii</p>
-                    <ul class="item__desc">
-                        <li>9201</li>
-                        <li>215 miles</li>
-                        <li>USA</li>
-                        <li>2010</li>
-                    </ul>
-                    <a href="#" class="more-button">More</a>
-                </div>
+            <?php
+            while($cars = mysqli_fetch_assoc($carselect)){
 
+            ?>
                 <div class="catalogue__item">
-                    <div class="item__img"><img src="/src/img/cars/Ford Torino.jpg" width="340px" alt="car"></div>
-                    <p class="item__name">Ford Torino</p>
+                    <div class="item__img"><img src="<?php echo $cars['photo']; ?>" width="340px" alt="car"></div>
+                    <p class="item__name"><?php echo $cars['model']; ?></p>
                     <ul class="item__desc">
-                        <li>10564</li>
-                        <li>140 miles</li>
-                        <li>USA</li>
-                        <li>2015</li>
-                    </ul>
-                    <a href="#" class="more-button">More</a>
+                        <li><?php echo $cars['price']; ?></li>
+                        <li><?php echo $cars['mileage']; ?> miles</li>
+                        <li><?php echo $cars['country']; ?></li>
+                        <li><?php echo $cars['restor_year']; ?></li>
+                    </ul> 
+                    <a href="item.php?item_id=<?= $cars['idcar']?>" class="more-button">More</a>
                 </div>
-                <div class="catalogue__item">
-                    <div class="item__img"><img src="/src/img/cars/chevrolet Impala.jpg" width="340px" alt="car"></div>
-                    <p class="item__name">Chevrolet Impala</p>
-                    <ul class="item__desc">
-                        <li>10264</li>
-                        <li>220 miles</li>
-                        <li>USA</li>
-                        <li>2014</li>
-                    </ul>
-                    <a href="#" class="more-button">More</a>
-                </div>
-                <div class="catalogue__item">
-                    <div class="item__img"><img src="/src/img/cars/plymouth fury.jpg" width="340px" alt="car"></div>
-                    <p class="item__name">Plymouth Fury iii</p>
-                    <ul class="item__desc">
-                        <li>9201</li>
-                        <li>215 miles</li>
-                        <li>USA</li>
-                        <li>2010</li>
-                    </ul>
-                    <a href="#" class="more-button">More</a>
-                </div>
+                <?php
+            }
+            ?>
             </div>
         </div>
     </div>

@@ -467,7 +467,12 @@ $mediumBlue: #79A3D9;
         
     }
 }
-
+.item__image{
+    img{
+        display: block;
+        height: 200px;
+    }
+}
 .item-heading{
     &__title{
         font-family: $main-font;

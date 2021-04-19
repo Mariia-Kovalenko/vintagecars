@@ -22,7 +22,7 @@ $carselect = mysqli_query($connection, "select idcar, model, price, mileage, cou
                 <div class="logo"><a href="index.php"><img src="/src/img/Logo.svg" height="40px" alt="logo"></a></div>
                 <nav class="nav">
                     <ul class="nav__list">
-                        <li class="nav__list-item"><a class="nav__link" href ="#">Catalogue</a></li>
+                        <li class="nav__list-item"><a class="nav__link" href ="catalogue.php">Catalogue</a></li>
                         <li class="nav__list-item"><a class="nav__link" href ="#">Suppliers</a></li>
                         <li class="nav__list-item"><a class="nav__link" href ="#">Contacts</a></li>
                     </ul>      
@@ -40,7 +40,7 @@ $carselect = mysqli_query($connection, "select idcar, model, price, mileage, cou
             <div class="intro__inner">
                 <h1 class ="heading">Best Retro Cars for Everyone</h1>
                 <h2 class ="post-heading">Order your first car with 20% discount</h2>
-                <a href="catalogue.html" class="button">Browse Cars</a>
+                <a href="catalogue.php" class="button">Browse Cars</a>
             </div>
         </div>
     </div>
@@ -64,9 +64,6 @@ $carselect = mysqli_query($connection, "select idcar, model, price, mileage, cou
                         <li><?php echo $cars['country']; ?></li>
                         <li><?php echo $cars['restor_year']; ?></li>
                     </ul>
-                     <?php      
-                    //$_SESSION['model'] = $cars['model'];
-                    //?> 
                     <a href="item.php?item_id=<?= $cars['idcar']?>" class="more-button">More</a>
                 </div>
                 <?php
@@ -74,7 +71,7 @@ $carselect = mysqli_query($connection, "select idcar, model, price, mileage, cou
             ?>
             </div>
             <div class="button-block">
-                <a href="#" class="button">All Cars</a>
+                <a href="catalogue.php" class="button">All Cars</a>
             </div>
         </div>
     </div>

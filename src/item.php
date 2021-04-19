@@ -48,7 +48,7 @@ else echo "something went wrong";
         <div class="container">
             <div class="item-wrapper">
                 <div class="item__image">
-                    <img src="/src/img/cars/Ford Torino.jpg" height="245px" alt="">
+                    <img src="<?php echo $row['photo']; ?>" height="245px" alt="">
                 </div>
                 <div class="item__desc">
                     <h3 class="item__model"><?php echo $row['model'] ?></h3>
