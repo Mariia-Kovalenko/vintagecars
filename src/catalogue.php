@@ -2,7 +2,7 @@
 session_start();
 require_once "connect.php";
 
-$carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 100");
+$carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 99");
 
 ?>
 
@@ -222,7 +222,9 @@ $carselect = mysqli_query($connection, "select idcar, model, price, mileage, pho
 
             ?>
                 <div class="catalogue__item">
-                    <div class="item__img"><img src="<?php echo $cars['photo']; ?>" width="340px" alt="car"></div>
+                <div class="item__image">
+                    <img src="<?php if($cars['photo'] == NULL) {echo "/src/img/cars/car-default.jpg"; } else echo $cars['photo']; ?>" width="340px" alt="car">
+                </div>
                     <p class="item__name"><?php echo $cars['model']; ?></p>
                     <ul class="item__desc">
                         <li><?php echo $cars['price']; ?></li>

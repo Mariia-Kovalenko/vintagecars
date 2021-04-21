@@ -20,7 +20,7 @@
             <input class="input" type="password" name="password" placeholder="Enter your password">
             <button class="form__button" type="submit">Log In</button>
             <p class="hint">
-                Do not have an account?  <a href="/src/register.php" class="sign-link">Sign Up</a>
+                Do not have an account?  <a href="/src/register.php" class="sign-link">Sign Up</a> or go <a href="/src/index.php" class="sign-link">Home</a>
             </p>
         </form>
     </div>

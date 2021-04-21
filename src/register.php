@@ -26,7 +26,7 @@
             <input class="input" type="password" name="password" placeholder="Enter your password">
             <button class="form__button" type="submit">Sign Up</button>
             <p class="hint">
-                Already have an account?  <a href="/src/authorize.php" class="sign-link">Log In</a>
+                Already have an account?  <a href="/src/authorize.php" class="sign-link">Log In</a> or go <a href="/src/index.php" class="sign-link">Home</a>
             </p>
         </form>
     </div>

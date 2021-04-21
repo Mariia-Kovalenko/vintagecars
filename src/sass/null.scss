@@ -28,7 +28,7 @@ a[class] {
 a:not([class]) {
   text-decoration: none;
 }
-img {
+img:not([class]) {
   max-width: 100%;
   display: block; 
   // vertical-align: top;

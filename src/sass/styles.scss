@@ -416,6 +416,7 @@ $mediumBlue: #79A3D9;
     margin-left: auto;
     margin-right: auto;
     transition: all .3s;
+    cursor: pointer;
     
     &:hover{
         background: #5b6a88;
@@ -468,11 +469,13 @@ $mediumBlue: #79A3D9;
     }
 }
 .item__image{
+    height: 200px; 
     img{
         display: block;
-        height: 200px;
+        height: 100%;
     }
 }
+
 .item-heading{
     &__title{
         font-family: $main-font;

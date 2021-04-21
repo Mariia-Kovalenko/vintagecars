@@ -48,7 +48,7 @@ else echo "something went wrong";
         <div class="container">
             <div class="item-wrapper">
                 <div class="item__image">
-                    <img src="<?php echo $row['photo']; ?>" height="245px" alt="">
+                    <img src="<?php if($row['photo'] == NULL) {echo "/src/img/cars/car-default.jpg"; } else echo $row['photo']; ?>" height="245px" alt="">
                 </div>
                 <div class="item__desc">
                     <h3 class="item__model"><?php echo $row['model'] ?></h3>
@@ -95,7 +95,7 @@ else echo "something went wrong";
                         <a href="catalogue.html" class="arrow-icon">
                             <img src="/src/icons/left-arrow 1.svg" alt="">
                         </a>
-                        <a href="catalogue.html" class="return-link">Back to Catalogue</a>
+                        <a href="catalogue.php" class="return-link">Back to Catalogue</a>
                     </div>
                     <a href="#" class="button order-button">Order</a>
                 </div>
