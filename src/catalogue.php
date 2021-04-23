@@ -56,8 +56,8 @@ function addWhere($where, $add, $and = false)
                 <div class="forms-wrapper">
 
                     <form action="" method="post">
-                        <ul>
-                            <li>
+                        <ul class="form-marks">
+                            <li class="car-marks">
                                 <h3 class="column-name">Mark</h3>
                                 <ul>
                                     <li><input name="model1" type="checkbox" value="AMC" />AMC</li>
@@ -87,7 +87,7 @@ function addWhere($where, $add, $and = false)
                                     <li><input name="model25" type="checkbox" value="Volvo" />Volvo </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class ="">
                                 <h3 class="column-name">Year</h3>
                                 <ul>
                                     <li><input name="age_interval1" type="checkbox" value="1960 and 1965" />1960 - 1965</li>
