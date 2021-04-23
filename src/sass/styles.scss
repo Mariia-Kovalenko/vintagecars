@@ -389,9 +389,6 @@ $mediumBlue: #79A3D9;
     display: flex;
     flex-wrap: wrap;
     max-width: 650px;
-    .car-marks{
-        margin-right: 17px;
-    }
 }
 
 .column-name{
@@ -399,6 +396,9 @@ $mediumBlue: #79A3D9;
     font-size: 20px;
     line-height: 30px;
     margin: 10px 0;
+}
+.checkbox-list{
+    display: flex;
 }
 
 .apply-button{

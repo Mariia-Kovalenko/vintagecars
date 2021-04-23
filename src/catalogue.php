@@ -56,10 +56,10 @@ function addWhere($where, $add, $and = false)
                 <div class="forms-wrapper">
 
                     <form action="" method="post">
-                        <ul class="form-marks">
-                            <li class="car-marks">
+                        <ul class ="form-marks">
+                            <li>
                                 <h3 class="column-name">Mark</h3>
-                                <ul>
+                                <ul class ="checkbox-list">
                                     <li><input name="model1" type="checkbox" value="AMC" />AMC</li>
                                     <li><input name="model2" type="checkbox" value="Audi" />Audi</li>
                                     <li><input name="model3" type="checkbox" value="BMW" />BMW </li>
@@ -89,7 +89,7 @@ function addWhere($where, $add, $and = false)
                             </li>
                             <li class ="">
                                 <h3 class="column-name">Year</h3>
-                                <ul>
+                                <ul class ="checkbox-list">
                                     <li><input name="age_interval1" type="checkbox" value="1960 and 1965" />1960 - 1965</li>
                                     <li><input name="age_interval2" type="checkbox" value="1966 and 1967" />1966 - 1967</li>
                                     <li><input name="age_interval3" type="checkbox" value="1965 and 1970" />1965 - 1970</li>
@@ -97,7 +97,7 @@ function addWhere($where, $add, $and = false)
                             </li>
                             <li>
                                 <h3 class="column-name">Mileage</h3>
-                                <ul>
+                                <ul class ="checkbox-list">
                                     <li><input name="miles_interval1" type="checkbox" value="13000 and 20000" />13.000 - 20.000 m</li>
                                     <li><input name="miles_interval2" type="checkbox" value="21000 and 30000" />21.000 - 30.000 m</li>
                                     <li><input name="miles_interval3" type="checkbox" value="31000 and 40000" />31.000 - 40.000 m</li>
