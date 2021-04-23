@@ -2,7 +2,18 @@
 session_start();
 require_once "connect.php";
 
-$carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 99");
+$carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 9");
+
+$query = mysqli_query($connection, "select * from `car`");
+
+function addWhere($where, $add, $and = false)
+{
+    if ($where) {
+        if ($and) $where .= " AND $add";
+        else $where .= " OR $add";
+    } else $where = $add;
+    return $where;
+}
 
 ?>
 
@@ -15,9 +26,7 @@ $carselect = mysqli_query($connection, "select idcar, model, price, mileage, pho
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BestAuto</title>
     <link rel="stylesheet" href="/src/css/styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -47,196 +56,226 @@ $carselect = mysqli_query($connection, "select idcar, model, price, mileage, pho
                 <div class="forms-wrapper">
 
                     <form action="" method="post">
-                        <h3 class="column-name">Mark</h3>
-                        <div class="form-marks">
-                            <ul class="car-marks">
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">AMC</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Audi</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">BMW</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Buick</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Cadillac</label>
-                                </li>
-                            </ul>
-
-                            <ul class="car-marks">
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Capri</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Chevrolet</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Chrysler</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Datsun</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Dodge</label>
-                                </li>
-                            </ul>
-                            <ul class="car-marks">
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Fiat</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Ford</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Honda</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Mazda</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Mercury</label>
-                                </li>
-                            </ul>
-                            <ul class="car-marks">
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Nissan</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Oldsmobile</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Opel</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Peugeot</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Plymouth</label>
-                                </li>
-                            </ul>
-                            <ul class="car-marks">
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Pontiac</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Renault</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Saab</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Toyota</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Volkswagen</label>
-                                </li>
-                            </ul>
-                            <ul class="car-marks">
-                                <li>
-                                    <input type="checkbox" id="mark" name="car_mark">
-                                    <label for="mark">Volvo</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </form>
-
-                    <form action="" method="post">
-                        <h3 class="column-name">Year</h3>
-                        <div class="form-years">
-                            <ul class="car-years">
-                                <li>
-                                    <input type="checkbox" id="year" name="car_year">
-                                    <label for="year">1960-1965</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="year" name="car_year">
-                                    <label for="year">1966-1970</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="year" name="car_year">
-                                    <label for="year">1971-1975</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </form>
-
-                    <form action="" method="post">
-                        <h3 class="column-name">Mileage</h3>
-                        <div class="form-mileages">
-                            <ul class="car-mileages">
-                                <li>
-                                    <input type="checkbox" id="mileage" name="car_mileage">
-                                    <label for="mileage">1960-1965</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mileage" name="car_mileage">
-                                    <label for="mileage">1966-1970</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="mileage" name="car_mileage">
-                                    <label for="mileage">1971-1975</label>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul>
+                            <li>
+                                <h3 class="column-name">Mark</h3>
+                                <ul>
+                                    <li><input name="model1" type="checkbox" value="AMC" />AMC</li>
+                                    <li><input name="model2" type="checkbox" value="Audi" />Audi</li>
+                                    <li><input name="model3" type="checkbox" value="BMW" />BMW </li>
+                                    <li><input name="model4" type="checkbox" value="Buick" />Buick </li>
+                                    <li><input name="model5" type="checkbox" value="Cadillac" />Cadillac </li>
+                                    <li><input name="model6" type="checkbox" value="Capri" />Capri </li>
+                                    <li><input name="model7" type="checkbox" value="Chevrolet" />Chevrolet </li>
+                                    <li><input name="model8" type="checkbox" value="Crysler" />Chrysler </li>
+                                    <li><input name="model9" type="checkbox" value="Datsun" />Datsun</li>
+                                    <li><input name="model10" type="checkbox" value="Dodge" />Fiat </li>
+                                    <li><input name="model11" type="checkbox" value="Dodge" />Ford </li>
+                                    <li><input name="model12" type="checkbox" value="Dodge" />Honda </li>
+                                    <li><input name="model13" type="checkbox" value="Dodge" />Mazda </li>
+                                    <li><input name="model14" type="checkbox" value="Dodge" />Mercury </li>
+                                    <li><input name="model15" type="checkbox" value="Dodge" />Nissan </li>
+                                    <li><input name="model16" type="checkbox" value="Oldsmobile" />Oldsmobile</li>
+                                    <li><input name="model17" type="checkbox" value="Opel" />Opel </li>
+                                    <li><input name="model18" type="checkbox" value="Peugeot" />Peugeot </li>
+                                    <li><input name="model19" type="checkbox" value="Plymouth" />Plymouth </li>
+                                    <li><input name="model20" type="checkbox" value="Pontiac" />Pontiac </li>
+                                    <li><input name="model21" type="checkbox" value="Renault" />Renault </li>
+                                    <li><input name="model22" type="checkbox" value="Saab" />Saab </li>
+                                    <li><input name="model23" type="checkbox" value="Toyota" />Toyota </li>
+                                    <li><input name="model24" type="checkbox" value="Volkswagen" />Volkswagen </li>
+                                    <li><input name="model25" type="checkbox" value="Volvo" />Volvo </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h3 class="column-name">Year</h3>
+                                <ul>
+                                    <li><input name="age_interval1" type="checkbox" value="1960 and 1965" />1960 - 1965</li>
+                                    <li><input name="age_interval2" type="checkbox" value="1966 and 1967" />1966 - 1967</li>
+                                    <li><input name="age_interval3" type="checkbox" value="1965 and 1970" />1965 - 1970</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h3 class="column-name">Mileage</h3>
+                                <ul>
+                                    <li><input name="miles_interval1" type="checkbox" value="13000 and 20000" />13.000 - 20.000 m</li>
+                                    <li><input name="miles_interval2" type="checkbox" value="21000 and 30000" />21.000 - 30.000 m</li>
+                                    <li><input name="miles_interval3" type="checkbox" value="31000 and 40000" />31.000 - 40.000 m</li>
+                                    <li><input name="miles_interval3" type="checkbox" value="41000 and 50000" />41.000 - 50.000 m</li>
+                                    <li><input name="miles_interval3" type="checkbox" value="51000 and 60000" />51.000 - 60.000 m</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <input class ="apply-button" name="filter" type="submit" value="Apply" />
+                        <input class ="apply-button" name ="reset" type="reset" value="Reset"/>
+                        <a class ="apply-button" href ="/src/catalogue.php">  Clear</a>
                     </form>
                 </div>
-                <input class="apply-button" name="filter" type="submit" value="Apply"/>
             </div>
         </div>
     </div>
 
+
     <div class="catalogue catalogue-list">
         <div class="container">
             <div class="catalogue__items">
-            <?php
-            while($cars = mysqli_fetch_assoc($carselect)){
-
-            ?>
-                <div class="catalogue__item">
-                <div class="item__image">
-                    <img src="<?php if($cars['photo'] == NULL) {echo "/src/img/cars/car-default.jpg"; } else echo $cars['photo']; ?>" width="340px" alt="car">
-                </div>
-                    <p class="item__name"><?php echo $cars['model']; ?></p>
-                    <ul class="item__desc">
-                        <li><?php echo $cars['price']; ?></li>
-                        <li><?php echo $cars['mileage']; ?> miles</li>
-                        <li><?php echo $cars['country']; ?></li>
-                        <li><?php echo $cars['restor_year']; ?></li>
-                    </ul> 
-                    <a href="item.php?item_id=<?= $cars['idcar']?>" class="more-button">More</a>
-                </div>
                 <?php
-            }
-            ?>
+
+                if (!empty($_POST["filter"])) {
+                    $sql = "select * from `car`";
+                    $where = "";
+
+                    if ($_POST["model1"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model1"]), false) . "%'";
+                    }
+                    if ($_POST["model2"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model2"]), false) . "%'";
+                    }
+                    if ($_POST["model3"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model3"]), false) . "%'";
+                    }
+                    if ($_POST["model4"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model4"]), false) . "%'";
+                    }
+                    if ($_POST["model5"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model5"]), false) . "%'";
+                    }
+                    if ($_POST["model6"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model6"]), false) . "%'";
+                    }
+                    if ($_POST["model7"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model7"]), false) . "%'";
+                    }
+                    if ($_POST["model8"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model8"]), false) . "%'";
+                    }
+                    if ($_POST["model9"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model9"]), false) . "%'";
+                    }
+                    if ($_POST["model10"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model10"]), false) . "%'";
+                    }
+                    if ($_POST["model11"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model11"]), false) . "%'";
+                    }
+                    if ($_POST["model12"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model12"]), false) . "%'";
+                    }
+                    if ($_POST["mode13"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model13"]), false) . "%'";
+                    }
+                    if ($_POST["mode14"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model14"]), false) . "%'";
+                    }
+                    if ($_POST["mode15"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model15"]), false) . "%'";
+                    }
+                    if ($_POST["mode16"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model16"]), false) . "%'";
+                    }
+                    if ($_POST["mode17"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model17"]), false) . "%'";
+                    }
+                    if ($_POST["mode18"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model18"]), false) . "%'";
+                    }
+                    if ($_POST["mode19"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model19"]), false) . "%'";
+                    }
+                    if ($_POST["mode20"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model20"]), false) . "%'";
+                    }
+                    if ($_POST["mode21"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model21"]), false) . "%'";
+                    }
+                    if ($_POST["mode22"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model22"]), false) . "%'";
+                    }
+                    if ($_POST["mode23"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model23"]), false) . "%'";
+                    }
+                    if ($_POST["mode24"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model24"]), false) . "%'";
+                    }
+                    if ($_POST["mode25"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model25"]), false) . "%'";
+                    }
+
+                    if ($_POST["age_interval1"]) {
+                        $where = addWhere($where, "manuf_year between " . htmlspecialchars($_POST["age_interval1"]), true) . "";
+                    }
+                    if ($_POST["age_interval2"]) {
+                        $where = addWhere($where, "manuf_year between " . htmlspecialchars($_POST["age_interval2"]), true) . "";
+                    }
+                    if ($_POST["age_interval3"]) {
+                        $where = addWhere($where, "manuf_year between " . htmlspecialchars($_POST["age_interval3"]), true) . "";
+                    }
+
+                    if ($_POST["miles_interval1"]) {
+                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval1"]), true) . "";
+                    }
+                    if ($_POST["miles_interval2"]) {
+                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval2"]), true) . "";
+                    }
+                    if ($_POST["mileage_interval3"]) {
+                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval3"]), true) . "";
+                    }
+                    if ($_POST["mileage_interval4"]) {
+                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval4"]), true) . "";
+                    }
+                    if ($_POST["mileage_interval5"]) {
+                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval5"]), true) . "";
+                    }
+                    if ($where) {
+                        $sql .= " WHERE $where";
+                    } else {
+                        $sql .= " WHERE ";
+                    }
+                    echo '<h1>Получили такой SQL запрос:</h1>' . $sql;
+
+                    $res =  mysqli_query($connection, $sql);
+                    while($car = mysqli_fetch_assoc($res)){
+                    ?>
+                    <div class="catalogue__item">
+                            <div class="item__image">
+                                <img src="<?php if ($car['photo'] == NULL) {
+                                                echo "/src/img/cars/car-default.jpg";
+                                            } else echo $car['photo']; ?>" width="340px" alt="car">
+                            </div>
+                            <p class="item__name"><?php echo $car['model']; ?></p>
+                            <ul class="item__desc">
+                                <li><?php echo $car['price']; ?></li>
+                                <li><?php echo $car['mileage']; ?> miles</li>
+                                <li><?php echo $car['country']; ?></li>
+                                <li><?php echo $car['restor_year']; ?></li>
+                            </ul>
+                            <a href="item.php?item_id=<?= $car['idcar'] ?>" class="more-button">More</a>
+                        </div> 
+                <?php
+                }
+                } else {
+                    while ($cars = mysqli_fetch_assoc($carselect)) {
+
+                ?>
+                        <div class="catalogue__item">
+                            <div class="item__image">
+                                <img src="<?php if ($cars['photo'] == NULL) {
+                                                echo "/src/img/cars/car-default.jpg";
+                                            } else echo $cars['photo']; ?>" width="340px" alt="car">
+                            </div>
+                            <p class="item__name"><?php echo $cars['model']; ?></p>
+                            <ul class="item__desc">
+                                <li><?php echo $cars['price']; ?></li>
+                                <li><?php echo $cars['mileage']; ?> miles</li>
+                                <li><?php echo $cars['country']; ?></li>
+                                <li><?php echo $cars['restor_year']; ?></li>
+                            </ul>
+                            <a href="item.php?item_id=<?= $cars['idcar'] ?>" class="more-button">More</a>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
