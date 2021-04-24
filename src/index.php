@@ -3,6 +3,7 @@ session_start();
 require_once "connect.php";
 
 $carselect = mysqli_query($connection, "select idcar, model, price, photo, mileage, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 9");
+$supplierselect = mysqli_query($connection, "select logo from supplier limit 6");
 
 // $clientselect = mysqli_query($connection, "select login from clients where first_name = 'Toby'");
 
@@ -90,12 +91,13 @@ $carselect = mysqli_query($connection, "select idcar, model, price, photo, milea
                 <h2 class="section-heading__text white">Suppliers</h2>
             </div>
             <div class="suppliers-container">
-                <div class="supplier__item"><img src="/src/img/suppl-logos/retro-cars-de.svg" alt="logo" class="supplier__logo"></div>
-                <div class="supplier__item"><img src="/src/img/suppl-logos/classic-carslogo.svg" alt="logo" class="supplier__logo"></div>
-                <div class="supplier__item"><img src="/src/img/suppl-logos/sbt-japan-logo.svg" alt="logo" class="supplier__logo"></div>
-                <div class="supplier__item"><img src="/src/img/suppl-logos/vintage-vehicles-logo.svg" alt="logo" class="supplier__logo"></div>
-                <div class="supplier__item"><img src="/src/img/suppl-logos/car-export-logo.svg" alt="logo" class="supplier__logo"></div>
-                <div class="supplier__item"><img src="/src/img/suppl-logos/mobile-de.svg" alt="logo" class="supplier__logo"></div>
+            <?php
+            while($supplier = mysqli_fetch_assoc($supplierselect)){
+            ?>
+                <div class="supplier__item"><img src="<?php if($supplier['logo'] == NULL) {echo "no logo"; } else echo $supplier['logo']; ?>" alt="logo" class="supplier__logo"></div>
+                <?php
+            }
+            ?>
             </div>
             <div class="button-block">
                 <a href="#" class="button">View All</a>
