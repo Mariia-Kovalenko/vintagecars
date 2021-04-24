@@ -379,6 +379,9 @@ button {
   font-size: 14px;
   line-height: 21px;
 }
+.forms-wrapper li {
+  padding-bottom: 5px;
+}
 
 .filter-heading {
   display: flex;
@@ -394,12 +397,6 @@ button {
   font-size: 24px;
 }
 
-.form-marks {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 650px;
-}
-
 .column-name {
   font-weight: 600;
   font-size: 20px;
@@ -409,10 +406,28 @@ button {
 
 .checkbox-list {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.model-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.model-list div {
+  margin-right: 15px;
+}
+
+.form-buttons {
+  display: flex;
+  max-width: 220px;
+  margin: 0 auto;
 }
 
 .apply-button {
+  display: block;
   font-family: "Poppins", sans-serif;
+  text-align: center;
   color: white;
   font-weight: 600;
   font-size: 14px;

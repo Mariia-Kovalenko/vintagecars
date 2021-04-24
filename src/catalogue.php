@@ -2,7 +2,7 @@
 session_start();
 require_once "connect.php";
 
-$carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 9");
+$carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 99");
 
 $query = mysqli_query($connection, "select * from `car`");
 
@@ -53,41 +53,49 @@ function addWhere($where, $add, $and = false)
                     <p class="filter__text">Filter</p>
                 </div>
 
-                <div class="forms-wrapper">
-
                     <form action="" method="post">
-                        <ul class ="form-marks">
+                        <ul class ="forms-wrapper">
                             <li>
                                 <h3 class="column-name">Mark</h3>
-                                <ul class ="checkbox-list">
+                                <ul class ="model-list">
+                                    <div>
                                     <li><input name="model1" type="checkbox" value="AMC" />AMC</li>
                                     <li><input name="model2" type="checkbox" value="Audi" />Audi</li>
                                     <li><input name="model3" type="checkbox" value="BMW" />BMW </li>
                                     <li><input name="model4" type="checkbox" value="Buick" />Buick </li>
                                     <li><input name="model5" type="checkbox" value="Cadillac" />Cadillac </li>
+                                    </div>
+                                    <div>
                                     <li><input name="model6" type="checkbox" value="Capri" />Capri </li>
                                     <li><input name="model7" type="checkbox" value="Chevrolet" />Chevrolet </li>
                                     <li><input name="model8" type="checkbox" value="Crysler" />Chrysler </li>
                                     <li><input name="model9" type="checkbox" value="Datsun" />Datsun</li>
                                     <li><input name="model10" type="checkbox" value="Dodge" />Fiat </li>
+                                    </div>
+                                    <div>
                                     <li><input name="model11" type="checkbox" value="Dodge" />Ford </li>
                                     <li><input name="model12" type="checkbox" value="Dodge" />Honda </li>
                                     <li><input name="model13" type="checkbox" value="Dodge" />Mazda </li>
                                     <li><input name="model14" type="checkbox" value="Dodge" />Mercury </li>
                                     <li><input name="model15" type="checkbox" value="Dodge" />Nissan </li>
+                                    </div>
+                                    <div>
                                     <li><input name="model16" type="checkbox" value="Oldsmobile" />Oldsmobile</li>
                                     <li><input name="model17" type="checkbox" value="Opel" />Opel </li>
                                     <li><input name="model18" type="checkbox" value="Peugeot" />Peugeot </li>
                                     <li><input name="model19" type="checkbox" value="Plymouth" />Plymouth </li>
                                     <li><input name="model20" type="checkbox" value="Pontiac" />Pontiac </li>
+                                    </div>
+                                    <div>
                                     <li><input name="model21" type="checkbox" value="Renault" />Renault </li>
                                     <li><input name="model22" type="checkbox" value="Saab" />Saab </li>
                                     <li><input name="model23" type="checkbox" value="Toyota" />Toyota </li>
                                     <li><input name="model24" type="checkbox" value="Volkswagen" />Volkswagen </li>
                                     <li><input name="model25" type="checkbox" value="Volvo" />Volvo </li>
+                                    </div>
                                 </ul>
                             </li>
-                            <li class ="">
+                            <li >
                                 <h3 class="column-name">Year</h3>
                                 <ul class ="checkbox-list">
                                     <li><input name="age_interval1" type="checkbox" value="1960 and 1965" />1960 - 1965</li>
@@ -106,11 +114,13 @@ function addWhere($where, $add, $and = false)
                                 </ul>
                             </li>
                         </ul>
-                        <input class ="apply-button" name="filter" type="submit" value="Apply" />
-                        <input class ="apply-button" name ="reset" type="reset" value="Reset"/>
-                        <a class ="apply-button" href ="/src/catalogue.php">  Clear</a>
+                        <div class="form-buttons">
+                            <input class ="apply-button" name="filter" type="submit" value="Apply" />
+                            <!-- <input class ="apply-button" name ="reset" type="reset" value="Reset"/> -->
+                            <a class ="apply-button" href ="/src/catalogue.php">  Clear</a>
+                        </div>
                     </form>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -231,7 +241,7 @@ function addWhere($where, $add, $and = false)
                     } else {
                         $sql .= " WHERE ";
                     }
-                    echo '<h1>Получили такой SQL запрос:</h1>' . $sql;
+                    echo '<h4>Получили такой SQL запрос:</h4>' . $sql;
 
                     $res =  mysqli_query($connection, $sql);
                     while($car = mysqli_fetch_assoc($res)){

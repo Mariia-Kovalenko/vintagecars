@@ -369,6 +369,9 @@ $mediumBlue: #79A3D9;
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
+    li{
+        padding-bottom: 5px ;
+    }
 }
 
 .filter-heading {
@@ -385,12 +388,6 @@ $mediumBlue: #79A3D9;
     font-size: 24px;
 }
 
-.form-marks {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 650px;
-}
-
 .column-name{
     font-weight: 600;
     font-size: 20px;
@@ -399,10 +396,25 @@ $mediumBlue: #79A3D9;
 }
 .checkbox-list{
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
-
+.model-list{
+    display: flex;
+    flex-wrap: wrap;
+    div{
+        margin-right: 15px;
+    }
+}
+.form-buttons{
+    display: flex;
+    max-width: 220px;
+    margin: 0 auto;
+}
 .apply-button{
+    display: block;
     font-family: $main-font;
+    text-align: center;
     color:white;
     font-weight: 600;
     font-size: 14px;
