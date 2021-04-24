@@ -4,7 +4,8 @@ require_once "connect.php";
 
 if(isset($_GET['item_id'])){
     $id = $_GET['item_id'];
-    $sql = "select * from car where idcar = '$id'";
+    $sql = "select car.idcar, car.model, car.price, car.mileage, car.restor_year, car.manuf_year, car.photo, supplier.supplier as suppl, country.country as cntr from car join supplier on car.supplier_idsupplier = supplier.idsupplier join country on car.country_idcountry = country.idcountry where idcar = '$id'";
+    
     $result = mysqli_query($connection, $sql);
     $row = mysqli_fetch_assoc($result); 
 }
@@ -78,11 +79,11 @@ else echo "something went wrong";
                             <div class="item__properties-part">
                                 <div class="item__properties-property">
                                     <h4 class="item__properties-ident">Supplier:</h4>
-                                    <p class="item__properties-data">CarsFromUSA</p>
+                                    <p class="item__properties-data"><?php echo $row['suppl'] ?></p>
                                 </div>
                                 <div class="item__properties-property">
                                     <h4 class="item__properties-ident">Origin:</h4>
-                                    <p class="item__properties-data">USA</p>
+                                    <p class="item__properties-data"><?php echo $row['cntr'] ?></p>
                                 </div>
                             </div>
                         </div>
