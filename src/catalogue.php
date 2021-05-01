@@ -3,7 +3,7 @@ session_start();
 require_once "connect.php";
 
 $carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 99");
-
+$carselectproc = mysqli_query($connection, "CALL `carselect`()");
 $query = mysqli_query($connection, "select * from `car`");
 
 function addWhere($where, $add, $and = false)
@@ -264,7 +264,7 @@ function addWhere($where, $add, $and = false)
                 <?php
                 }
                 } else {
-                    while ($cars = mysqli_fetch_assoc($carselect)) {
+                    while ($cars = mysqli_fetch_assoc($carselectproc)) {
 
                 ?>
                         <div class="catalogue__item">
