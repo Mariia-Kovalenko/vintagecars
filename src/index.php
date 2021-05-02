@@ -23,6 +23,7 @@ $supplierselect = mysqli_query($connection, "select logo from supplier limit 6")
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+   
     <header class="header">
         <div class="container">
             <div class="header__inner">
@@ -42,6 +43,8 @@ $supplierselect = mysqli_query($connection, "select logo from supplier limit 6")
         </div>
     </header>
 
+
+<main class ="main">
     <div class="intro">
         <div class="container">
             <div class="intro__inner">
@@ -128,6 +131,7 @@ $supplierselect = mysqli_query($connection, "select logo from supplier limit 6")
             </div>
         </div>
     </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-container">
