@@ -264,7 +264,7 @@ function addWhere($where, $add, $and = false)
                 <?php
                 }
                 } else {
-                    while ($cars = mysqli_fetch_assoc($carselectproc)) {
+                    while ($cars = mysqli_fetch_assoc($carselect)) {
 
                 ?>
                         <div class="catalogue__item">
