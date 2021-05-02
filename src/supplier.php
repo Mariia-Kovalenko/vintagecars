@@ -1,3 +1,23 @@
+<?php
+session_start();
+require_once "connect.php";
+
+$supplierselect = mysqli_query($connection, "select s.logo, s.describtion, c.country, s.year from supplier s, country c where s.country_idcountry = c.idcountry limit 9");
+$query = mysqli_query($connection, "select * from `supplier`");
+
+$sqlfrocarfilter = "SELECT supplier.logo, supplier.describtion, supplier.country_idcountry, supplier.year, car.model, car.supplier_idsupplier FROM `supplier`, `car` WHERE car.model like 'AMC%' and car.supplier_idsupplier = idsupplier";
+
+function addWhere($where, $add, $and = false)
+{
+    if ($where) {
+        if ($and) $where .= " AND $add";
+        else $where .= " OR $add";
+    } else $where = $add;
+    return $where;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,16 +120,24 @@
     <main class="main">
         <div class="container">
             <div class="suppliers-container">
+                <?php
+                while($supplier = mysqli_fetch_assoc($supplierselect)){
+                ?>
                 <div class="suppl__item">
                     <div class="suppl-logo">
-                        <img src="/src/img/suppl-logos/AutoMotoDelivery.svg" alt="">
+                        <img src="<?php if ($supplier['logo'] == NULL) {
+                                                echo "no logo";
+                                            } else echo $supplier['logo']; ?>" alt="logo">
                     </div>
                     <ul class="suppl-desc">
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
+                        <li><p class="suppl-desc__text"><?php echo $supplier['describtion']; ?></p></li>
+                        <li><?php echo $supplier['country']; ?></li>
+                        <li><?php echo $supplier['year']; ?></li>
                     </ul>
                 </div>
+                <?php
+                }
+                ?>
             </div>
 
         </div>

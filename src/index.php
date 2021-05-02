@@ -31,7 +31,7 @@ $supplierselect = mysqli_query($connection, "select logo from supplier limit 6")
                 <nav class="nav">
                     <ul class="nav__list">
                         <li class="nav__list-item"><a class="nav__link" href ="catalogue.php">Catalogue</a></li>
-                        <li class="nav__list-item"><a class="nav__link" href ="#">Suppliers</a></li>
+                        <li class="nav__list-item"><a class="nav__link" href ="supplier.php">Suppliers</a></li>
                         <li class="nav__list-item"><a class="nav__link" href ="#">Contacts</a></li>
                     </ul>      
                 </nav>
