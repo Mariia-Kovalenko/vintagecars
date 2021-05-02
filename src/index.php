@@ -36,8 +36,19 @@ $supplierselect = mysqli_query($connection, "select logo from supplier limit 6")
                     </ul>      
                 </nav>
                 <div class="sign-nav">
+                    <?php
+                    if($_SESSION['user']){
+                        ?>
+                        <p class="sign-nav__button" ><?= $_SESSION['user']['first_name'] ?></p>
+                        <a class="sign-nav__button" href="/src/logout.php">Log Out</a>
+                   <?php
+                    }else {
+                    ?>
                     <a class="sign-nav__button" href="/src/register.php">Sign Up</a>
                     <a class="sign-nav__button" href="/src/authorize.php">Log In</a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
