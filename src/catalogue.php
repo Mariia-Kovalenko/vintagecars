@@ -3,7 +3,7 @@ session_start();
 require_once "connect.php";
 
 $carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 99");
-$carselectproc = mysqli_query($connection, "CALL `carselect`()");
+
 $query = mysqli_query($connection, "select * from `car`");
 
 function addWhere($where, $add, $and = false)
@@ -68,16 +68,16 @@ function addWhere($where, $add, $and = false)
                                     <div>
                                     <li><input name="model6" type="checkbox" value="Capri" />Capri </li>
                                     <li><input name="model7" type="checkbox" value="Chevrolet" />Chevrolet </li>
-                                    <li><input name="model8" type="checkbox" value="Chrysler" />Chrysler </li>
+                                    <li><input name="model8" type="checkbox" value="Crysler" />Chrysler </li>
                                     <li><input name="model9" type="checkbox" value="Datsun" />Datsun</li>
-                                    <li><input name="model10" type="checkbox" value="Fiat" />Fiat </li>
+                                    <li><input name="model10" type="checkbox" value="Dodge" />Fiat </li>
                                     </div>
                                     <div>
-                                    <li><input name="model11" type="checkbox" value="Ford" />Ford </li>
-                                    <li><input name="model12" type="checkbox" value="Honda" />Honda </li>
-                                    <li><input name="model13" type="checkbox" value="Mazda" />Mazda </li>
-                                    <li><input name="model14" type="checkbox" value="Mercury" />Mercury </li>
-                                    <li><input name="model15" type="checkbox" value="Nissan" />Nissan </li>
+                                    <li><input name="model11" type="checkbox" value="Dodge" />Ford </li>
+                                    <li><input name="model12" type="checkbox" value="Dodge" />Honda </li>
+                                    <li><input name="model13" type="checkbox" value="Dodge" />Mazda </li>
+                                    <li><input name="model14" type="checkbox" value="Dodge" />Mercury </li>
+                                    <li><input name="model15" type="checkbox" value="Dodge" />Nissan </li>
                                     </div>
                                     <div>
                                     <li><input name="model16" type="checkbox" value="Oldsmobile" />Oldsmobile</li>
@@ -171,43 +171,43 @@ function addWhere($where, $add, $and = false)
                     if ($_POST["model12"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model12"]), false) . "%'";
                     }
-                    if ($_POST["mode13"]) {
+                    if ($_POST["model13"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model13"]), false) . "%'";
                     }
-                    if ($_POST["mode14"]) {
+                    if ($_POST["model14"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model14"]), false) . "%'";
                     }
-                    if ($_POST["mode15"]) {
+                    if ($_POST["model15"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model15"]), false) . "%'";
                     }
-                    if ($_POST["mode16"]) {
+                    if ($_POST["model16"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model16"]), false) . "%'";
                     }
-                    if ($_POST["mode17"]) {
+                    if ($_POST["model17"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model17"]), false) . "%'";
                     }
-                    if ($_POST["mode18"]) {
+                    if ($_POST["model18"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model18"]), false) . "%'";
                     }
-                    if ($_POST["mode19"]) {
+                    if ($_POST["model19"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model19"]), false) . "%'";
                     }
-                    if ($_POST["mode20"]) {
+                    if ($_POST["model20"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model20"]), false) . "%'";
                     }
-                    if ($_POST["mode21"]) {
+                    if ($_POST["model21"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model21"]), false) . "%'";
                     }
-                    if ($_POST["mode22"]) {
+                    if ($_POST["model22"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model22"]), false) . "%'";
                     }
-                    if ($_POST["mode23"]) {
+                    if ($_POST["model23"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model23"]), false) . "%'";
                     }
-                    if ($_POST["mode24"]) {
+                    if ($_POST["model24"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model24"]), false) . "%'";
                     }
-                    if ($_POST["mode25"]) {
+                    if ($_POST["model25"]) {
                         $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model25"]), false) . "%'";
                     }
 
