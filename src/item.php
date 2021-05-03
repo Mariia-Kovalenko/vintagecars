@@ -98,7 +98,7 @@ else echo "something went wrong";
                         </a>
                         <a href="catalogue.php" class="return-link">Back to Catalogue</a>
                     </div>
-                    <a href="#" class="button order-button">Order</a>
+                    <a href="order.php?item_id=<?= $row['idcar'] ?>" class="button order-button">Order</a>
                 </div>
             </div>
         </div>
