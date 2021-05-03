@@ -1,0 +1,79 @@
+@import "null.css";
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: #191726;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__button {
+  border: none;
+  display: block;
+  border-radius: 4px;
+  background: #BF304A;
+  padding: 10px 20px;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  width: 189px;
+  margin: 10px auto;
+}
+.form__button:hover {
+  background: #D85068;
+}
+
+.order-info {
+  display: flex;
+  max-width: 900px;
+  justify-content: space-between;
+}
+.order-info__car {
+  margin-right: 50px;
+}
+
+.order-heading {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.order-heading h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.5;
+  color: black;
+}
+
+.order-info__details {
+  width: 400px;
+}
+
+.detail__heading {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.detail__text {
+  padding: 5px 2px;
+  border-bottom: 1.5px solid #737E93;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  border: unset;
+  outline: none;
+  padding: 5px 2px;
+  border-bottom: 1.5px solid #737E93;
+}
+
+label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+}
