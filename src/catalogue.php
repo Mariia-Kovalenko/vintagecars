@@ -43,7 +43,6 @@ function addWhere($where, $add, $and = false)
                 </div>
                         </ul>
                     </nav>
-                </div>
             </header>
             <div class="section-heading">
                 <h2 class="section-heading__text white">Catalogue</h2>
@@ -121,7 +120,7 @@ function addWhere($where, $add, $and = false)
                             <a class ="apply-button" href ="/src/catalogue.php">  Clear</a>
                         </div>
                     </form>
-               
+            </div>
             </div>
         </div>
     </div>
