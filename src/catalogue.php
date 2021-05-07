@@ -2,7 +2,7 @@
 session_start();
 require_once "connect.php";
 
-$carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 99");
+$carselect = mysqli_query($connection, "select idcar, model, price, mileage, photo, country.country, restor_year from car join country on car.country_idcountry = country.idcountry where car.status = 'available' limit 99");
 
 $query = mysqli_query($connection, "select * from `car`");
 

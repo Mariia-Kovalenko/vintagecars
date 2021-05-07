@@ -18,7 +18,9 @@ if( mysqli_num_rows($check_user) > 0){
 (select idcar from car where idcar = '$idcar'), 
 (select supplier_idsupplier from car where idcar = '$idcar'), 
 (select country_idcountry from car where idcar = '$idcar'))");
-// "CALL `order_formation`(@'$date', @'$idclient', @'$idcar')");
+
+mysqli_query($connection, "UPDATE `car` SET `Status` = 'ordered' WHERE `idcar` = '$idcar'");
+
   $_SESSION['message'] ='successful';
   header('Location: /src/catalogue.php');
 }else{
