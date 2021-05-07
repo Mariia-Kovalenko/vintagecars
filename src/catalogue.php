@@ -237,7 +237,7 @@ function addWhere($where, $add, $and = false)
                         $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval5"]), true) . "";
                     }
                     if ($where) {
-                        $sql .= " WHERE $where";
+                        $sql .= " WHERE $where and car.status = 'available'";
                     } else {
                         $sql .= " WHERE ";
                     }
