@@ -6,7 +6,7 @@ $supplierselect = mysqli_query($connection, "select s.logo, s.describtion, c.cou
 $query = mysqli_query($connection, "select * from `supplier`");
 
 $sqlfrocarfilter = "SELECT supplier.logo, supplier.describtion, supplier.country_idcountry, supplier.year, car.model, car.supplier_idsupplier FROM `supplier`, `car` WHERE car.model like 'AMC%' and car.supplier_idsupplier = idsupplier";
-
+$sqlcarfilter = "SELECT distinct s.logo, s.describtion, s.country_idcountry, s.yearfrom supplier s join car c on s.idsupplier = c.supplier_idsupplier where c.model like 'ford%'";
 function addWhere($where, $add, $and = false)
 {
     if ($where) {
