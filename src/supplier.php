@@ -6,7 +6,7 @@ $supplierselect = mysqli_query($connection, "select s.logo, s.describtion, c.cou
 $query = mysqli_query($connection, "select * from `supplier`");
 
 $sqlfrocarfilter = "SELECT supplier.logo, supplier.describtion, supplier.country_idcountry, supplier.year, car.model, car.supplier_idsupplier FROM `supplier`, `car` WHERE car.model like 'AMC%' and car.supplier_idsupplier = idsupplier";
-$sqlcarfilter = "SELECT distinct s.logo, s.describtion, s.country_idcountry, s.yearfrom supplier s join car c on s.idsupplier = c.supplier_idsupplier where c.model like 'ford%'";
+$sqlcarfilter = "SELECT distinct s.logo, s.describtion, s.country_idcountry, s.year from supplier s join car c on s.idsupplier = c.supplier_idsupplier join country ct on s.country_idcountry = ct.idcountry where c.model like 'ford%'";
 function addWhere($where, $add, $and = false)
 {
     if ($where) {
@@ -109,7 +109,7 @@ function addWhere($where, $add, $and = false)
                         <div class="form-buttons">
                             <input class ="apply-button" name="filter" type="submit" value="Apply" />
                             <!-- <input class ="apply-button" name ="reset" type="reset" value="Reset"/> -->
-                            <a class ="apply-button" href ="/src/catalogue.php">  Clear</a>
+                            <a class ="apply-button" href ="/src/supplier.php">  Clear</a>
                         </div>
                     </form>
                
@@ -120,7 +120,127 @@ function addWhere($where, $add, $and = false)
     <main class="main">
         <div class="container">
             <div class="suppliers-container">
+            <?php
+
+if (!empty($_POST["filter"])) {
+    $sql = "SELECT distinct s.logo, s.describtion, s.country_idcountry, s.year from supplier s join car c on s.idsupplier = c.supplier_idsupplier join country ct on s.country_idcountry = ct.idcountry";
+    $where = "";
+
+    if ($_POST["model1"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model1"]), false) . "%'";
+    }
+    if ($_POST["model2"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model2"]), false) . "%'";
+    }
+    if ($_POST["model3"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model3"]), false) . "%'";
+    }
+    if ($_POST["model4"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model4"]), false) . "%'";
+    }
+    if ($_POST["model5"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model5"]), false) . "%'";
+    }
+    if ($_POST["model6"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model6"]), false) . "%'";
+    }
+    if ($_POST["model7"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model7"]), false) . "%'";
+    }
+    if ($_POST["model8"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model8"]), false) . "%'";
+    }
+    if ($_POST["model9"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model9"]), false) . "%'";
+    }
+    if ($_POST["model10"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model10"]), false) . "%'";
+    }
+    if ($_POST["model11"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model11"]), false) . "%'";
+    }
+    if ($_POST["model12"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model12"]), false) . "%'";
+    }
+    if ($_POST["model13"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model13"]), false) . "%'";
+    }
+    if ($_POST["model14"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model14"]), false) . "%'";
+    }
+    if ($_POST["model15"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model15"]), false) . "%'";
+    }
+    if ($_POST["model16"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model16"]), false) . "%'";
+    }
+    if ($_POST["model17"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model17"]), false) . "%'";
+    }
+    if ($_POST["model18"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model18"]), false) . "%'";
+    }
+    if ($_POST["model19"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model19"]), false) . "%'";
+    }
+    if ($_POST["model20"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model20"]), false) . "%'";
+    }
+    if ($_POST["model21"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model21"]), false) . "%'";
+    }
+    if ($_POST["model22"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model22"]), false) . "%'";
+    }
+    if ($_POST["model23"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model23"]), false) . "%'";
+    }
+    if ($_POST["model24"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model24"]), false) . "%'";
+    }
+    if ($_POST["model25"]) {
+        $where = addWhere($where, "c.model like '" . htmlspecialchars($_POST["model25"]), false) . "%'";
+    }
+
+
+    if ($_POST["country1"]) {
+        $where = addWhere($where, "ct.country = '" . htmlspecialchars($_POST["country1"]), true) . "'";
+    }
+    if ($_POST["country2"]) {
+        $where = addWhere($where, "ct.country = '" . htmlspecialchars($_POST["country2"]), true) . "'";
+    }
+    if ($_POST["country3"]) {
+        $where = addWhere($where, "ct.country = '" . htmlspecialchars($_POST["country3"]), true) . "'";
+    }
+    
+
+
+    if ($where) {
+        $sql .= " WHERE $where and c.status = 'available'";
+    } else {
+        $sql .= " WHERE ";
+    }
+    echo '<h4>Получили такой SQL запрос:</h4>' . $sql;
+
+    $res =  mysqli_query($connection, $sql);
+    while($supplier = mysqli_fetch_assoc($res)){
+    ?>
+
+<div class="suppl__item">
+                    <div class="suppl-logo">
+                        <img src="<?php if ($supplier['logo'] == NULL) {
+                                                echo "no logo";
+                                            } else echo $supplier['logo']; ?>" alt="logo">
+                    </div>
+                    <ul class="suppl-desc">
+                        <li><p class="suppl-desc__text"><?php echo $supplier['describtion']; ?></p></li>
+                        <li><?php echo $supplier['country']; ?></li>
+                        <li><?php echo $supplier['year']; ?></li>
+                    </ul>
+                </div>
                 <?php
+    }
+}else{
                 while($supplier = mysqli_fetch_assoc($supplierselect)){
                 ?>
                 <div class="suppl__item">
@@ -137,6 +257,7 @@ function addWhere($where, $add, $and = false)
                 </div>
                 <?php
                 }
+            }
                 ?>
             </div>
 
