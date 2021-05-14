@@ -73,11 +73,11 @@ function addWhere($where, $add, $and = false)
                                     <li><input name="model10" type="checkbox" value="Dodge" />Fiat </li>
                                     </div>
                                     <div>
-                                    <li><input name="model11" type="checkbox" value="Dodge" />Ford </li>
-                                    <li><input name="model12" type="checkbox" value="Dodge" />Honda </li>
-                                    <li><input name="model13" type="checkbox" value="Dodge" />Mazda </li>
-                                    <li><input name="model14" type="checkbox" value="Dodge" />Mercury </li>
-                                    <li><input name="model15" type="checkbox" value="Dodge" />Nissan </li>
+                                    <li><input name="model11" type="checkbox" value="Ford" />Ford </li>
+                                    <li><input name="model12" type="checkbox" value="Honda" />Honda </li>
+                                    <li><input name="model13" type="checkbox" value="Mazda" />Mazda </li>
+                                    <li><input name="model14" type="checkbox" value="Mercury" />Mercury </li>
+                                    <li><input name="model15" type="checkbox" value="Nissan" />Nissan </li>
                                     </div>
                                     <div>
                                     <li><input name="model16" type="checkbox" value="Oldsmobile" />Oldsmobile</li>
