@@ -256,7 +256,7 @@ function addWhere($where, $add, $and = false)
                     } else {
                         $sql .= " WHERE ";
                     }
-                    echo '<h4>Получили такой SQL запрос:</h4>' . $sql;
+                   // echo '<h4>Получили такой SQL запрос:</h4>' . $sql;
 
                     $res =  mysqli_query($connection, $sql);
                     while($car = mysqli_fetch_assoc($res)){
