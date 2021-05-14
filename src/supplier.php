@@ -40,10 +40,25 @@ function addWhere($where, $add, $and = false)
                     <nav class="nav">
                         <ul class="nav__list">
                             <li class="nav__list-item"><a class="nav__link" href="catalogue.php">Catalogue</a></li>
-                            <li class="nav__list-item"><a class="nav__link" href="#">Suppliers</a></li>
+                            <li class="nav__list-item"><a class="nav__link" href="supplier.php">Suppliers</a></li>
                             <li class="nav__list-item"><a class="nav__link" href="#">Contacts</a></li>
                         </ul>
                     </nav>
+                    <div class="sign-nav">
+                    <?php
+                    if($_SESSION['user']){
+                        ?>
+                        <p class="sign-nav__button" ><?= $_SESSION['user']['first_name'] ?></p>
+                        <a class="sign-nav__button" href="/src/logout.php">Log Out</a>
+                   <?php
+                    }else {
+                    ?>
+                    <a class="sign-nav__button" href="/src/register.php">Sign Up</a>
+                    <a class="sign-nav__button" href="/src/authorize.php">Log In</a>
+                    <?php
+                    }
+                    ?>
+                </div>
                 </div>
             </header>
             <div class="section-heading">

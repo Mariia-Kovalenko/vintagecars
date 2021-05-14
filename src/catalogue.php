@@ -37,12 +37,27 @@ function addWhere($where, $add, $and = false)
                     <div class="logo"><a href="index.php"><img src="/src/img/Logo.svg" height="40px" alt="logo"></a></div>
                     <nav class="nav">
                         <ul class="nav__list">
-                            <li class="nav__list-item"><a class="nav__link" href="#">Catalogue</a></li>
-                            <li class="nav__list-item"><a class="nav__link" href="#">Suppliers</a></li>
+                            <li class="nav__list-item"><a class="nav__link" href="catalogue.php">Catalogue</a></li>
+                            <li class="nav__list-item"><a class="nav__link" href="supplier.php">Suppliers</a></li>
                             <li class="nav__list-item"><a class="nav__link" href="#">Contacts</a></li>
-                </div>
                         </ul>
                     </nav>
+                    <div class="sign-nav">
+                    <?php
+                    if($_SESSION['user']){
+                        ?>
+                        <p class="sign-nav__button" ><?= $_SESSION['user']['first_name'] ?></p>
+                        <a class="sign-nav__button" href="/src/logout.php">Log Out</a>
+                   <?php
+                    }else {
+                    ?>
+                    <a class="sign-nav__button" href="/src/register.php">Sign Up</a>
+                    <a class="sign-nav__button" href="/src/authorize.php">Log In</a>
+                    <?php
+                    }
+                    ?>
+                </div>
+                </div>
             </header>
             <div class="section-heading">
                 <h2 class="section-heading__text white">Catalogue</h2>
@@ -70,7 +85,7 @@ function addWhere($where, $add, $and = false)
                                     <li><input name="model7" type="checkbox" value="Chevrolet" />Chevrolet </li>
                                     <li><input name="model8" type="checkbox" value="Crysler" />Chrysler </li>
                                     <li><input name="model9" type="checkbox" value="Datsun" />Datsun</li>
-                                    <li><input name="model10" type="checkbox" value="Dodge" />Fiat </li>
+                                    <li><input name="model10" type="checkbox" value="Fiat" />Fiat </li>
                                     </div>
                                     <div>
                                     <li><input name="model11" type="checkbox" value="Ford" />Ford </li>
@@ -227,17 +242,17 @@ function addWhere($where, $add, $and = false)
                     if ($_POST["miles_interval2"]) {
                         $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval2"]), true) . "";
                     }
-                    if ($_POST["mileage_interval3"]) {
+                    if ($_POST["miles_interval3"]) {
                         $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval3"]), true) . "";
                     }
-                    if ($_POST["mileage_interval4"]) {
+                    if ($_POST["miles_interval4"]) {
                         $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval4"]), true) . "";
                     }
-                    if ($_POST["mileage_interval5"]) {
+                    if ($_POST["miles_interval5"]) {
                         $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval5"]), true) . "";
                     }
                     if ($where) {
-                        $sql .= " WHERE $where and car.status = 'available'";
+                        $sql .= " WHERE $where  and car.status = 'available'";
                     } else {
                         $sql .= " WHERE ";
                     }
