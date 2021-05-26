@@ -114,7 +114,7 @@ $supplierselect = mysqli_query($connection, "select logo from supplier limit 6")
             ?>
             </div>
             <div class="button-block">
-                <a href="#" class="button">View All</a>
+                <a href="catalogue.php" class="button">View All</a>
             </div>        
         </div>
     </div>
@@ -150,9 +150,9 @@ $supplierselect = mysqli_query($connection, "select logo from supplier limit 6")
                 <div class="logo"><a href="#"><img src="/src/img/Logo.svg" height="50px" alt="logo"></a></div>
                 <nav class="nav">
                     <ul class="nav__list">
-                        <li class="nav__list-item"><a class="nav__link" href ="#">Catalogue</a></li>
-                        <li class="nav__list-item"><a class="nav__link" href ="#">Suppliers</a></li>
-                        <li class="nav__list-item"><a class="nav__link" href ="#">Contacts</a></li>
+                        <li class="nav__list-item"><a class="nav__link" href ="catalogue.php">Catalogue</a></li>
+                        <li class="nav__list-item"><a class="nav__link" href ="supplier.php">Suppliers</a></li>
+                        <li class="nav__list-item"><a class="nav__link" href ="index.php">Contacts</a></li>
                     </ul>      
                 </nav>
             </div>

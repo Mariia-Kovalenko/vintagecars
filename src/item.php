@@ -30,12 +30,12 @@ else echo "something went wrong";
         <div class="container">
             <header class="other-header">
                 <div class="header__inner">
-                    <div class="logo"><a href="#"><img src="/src/img/Logo.svg" height="40px" alt="logo"></a></div>
+                    <div class="logo"><a href="index.php"><img src="/src/img/Logo.svg" height="40px" alt="logo"></a></div>
                     <nav class="nav">
                         <ul class="nav__list">
-                            <li class="nav__list-item"><a class="nav__link" href="#">Catalogue</a></li>
-                            <li class="nav__list-item"><a class="nav__link" href="#">Suppliers</a></li>
-                            <li class="nav__list-item"><a class="nav__link" href="#">Contacts</a></li>
+                            <li class="nav__list-item"><a class="nav__link" href="catalogue.php">Catalogue</a></li>
+                            <li class="nav__list-item"><a class="nav__link" href="supplier.php">Suppliers</a></li>
+                            <li class="nav__list-item"><a class="nav__link" href="index.php">Contacts</a></li>
                         </ul>
                     </nav>
                     <div class="sign-nav">

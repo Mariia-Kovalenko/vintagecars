@@ -52,7 +52,7 @@ function addBrec($where, $right, $left)
                         <ul class="nav__list">
                             <li class="nav__list-item"><a class="nav__link" href="catalogue.php">Catalogue</a></li>
                             <li class="nav__list-item"><a class="nav__link" href="supplier.php">Suppliers</a></li>
-                            <li class="nav__list-item"><a class="nav__link" href="#">Contacts</a></li>
+                            <li class="nav__list-item"><a class="nav__link" href="index.php">Contacts</a></li>
                         </ul>
                     </nav>
                     <div class="sign-nav">
@@ -160,7 +160,7 @@ function addBrec($where, $right, $left)
                 <?php
 
                 if (!empty($_POST["filter"])) {
-                    $sql = "select * from `car`";
+                    $sql = "select idcar, model, price, mileage, photo, restor_year from car";
                     $where = "";
 
                     if (isset($_POST['model'])) {
@@ -280,9 +280,9 @@ function addBrec($where, $right, $left)
                 <div class="logo"><a href="#"><img src="/src/img/Logo.svg" height="50px" alt="logo"></a></div>
                 <nav class="nav">
                     <ul class="nav__list">
-                        <li class="nav__list-item"><a class="nav__link" href="#">Catalogue</a></li>
-                        <li class="nav__list-item"><a class="nav__link" href="#">Suppliers</a></li>
-                        <li class="nav__list-item"><a class="nav__link" href="#">Contacts</a></li>
+                        <li class="nav__list-item"><a class="nav__link" href="catalogue.php">Catalogue</a></li>
+                        <li class="nav__list-item"><a class="nav__link" href="suppliers.php">Suppliers</a></li>
+                        <li class="nav__list-item"><a class="nav__link" href="index.php">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
