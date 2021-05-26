@@ -113,7 +113,18 @@ else echo "something went wrong";
                         </a>
                         <a href="catalogue.php" class="return-link">Back to Catalogue</a>
                     </div>
+
+                    <?php
+                    if($_SESSION['user']) {
+                    ?>
                     <a href="order.php?item_id=<?= $row['idcar'] ?>" class="button order-button">Order</a>
+                    <?php
+                    } else {
+                    ?>
+                    <a href="authorize.php?item_id=<?= $row['idcar'] ?>" class="button order-button">Order</a>
+                    <?php
+                    } 
+                    ?>
                 </div>
             </div>
         </div>

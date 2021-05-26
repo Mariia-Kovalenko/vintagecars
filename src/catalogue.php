@@ -160,7 +160,7 @@ function addBrec($where, $right, $left)
                 <?php
 
                 if (!empty($_POST["filter"])) {
-                    $sql = "select idcar, model, price, mileage, photo, restor_year from car";
+                    $sql = "select idcar, model, price, mileage, photo,c.country, manuf_year from car join country c on car.country_idcountry = c.idcountry";
                     $where = "";
 
                     if (isset($_POST['model'])) {
@@ -228,6 +228,8 @@ function addBrec($where, $right, $left)
                     //echo '<h4>Получили такой SQL запрос:</h4>' . $sql;
 
                     $res =  mysqli_query($connection, $sql);
+                    if(!mysqli_fetch_assoc($res)) echo "no cars corresponding your requirements";
+                    else
                     while ($car = mysqli_fetch_assoc($res)) {
                 ?>
                         <div class="catalogue__item">
@@ -268,7 +270,7 @@ function addBrec($where, $right, $left)
                         </div>
                 <?php
                     }
-                }
+                } 
                 ?>
             </div>
         </div>

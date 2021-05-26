@@ -17,7 +17,6 @@
             "email" => $user['email'],
             "country" => $user['country']
         ];
-
         header('Location: /src/index.php');
     }else{
         echo 'Wrong login or/and password';
