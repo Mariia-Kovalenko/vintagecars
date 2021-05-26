@@ -6,12 +6,25 @@ $carselect = mysqli_query($connection, "select idcar, model, price, mileage, pho
 
 $query = mysqli_query($connection, "select * from `car`");
 
-function addWhere($where, $add, $and = false)
+function addWhere($where, $add, $other = false, $and = false)
 {
     if ($where) {
+        if ($other) {
+            $where .= $add;
+            return $where;
+        }
         if ($and) $where .= " AND $add";
         else $where .= " OR $add";
     } else $where = $add;
+    return $where;
+}
+
+function addBrec($where, $right, $left)
+{
+    // if($where){
+    if ($right) $where .= "(";
+    if ($left)  $where .= ")";
+    //}
     return $where;
 }
 
@@ -43,20 +56,20 @@ function addWhere($where, $add, $and = false)
                         </ul>
                     </nav>
                     <div class="sign-nav">
-                    <?php
-                    if($_SESSION['user']){
+                        <?php
+                        if ($_SESSION['user']) {
                         ?>
-                        <p class="sign-nav__button" ><?= $_SESSION['user']['first_name'] ?></p>
-                        <a class="sign-nav__button" href="/src/logout.php">Log Out</a>
-                   <?php
-                    }else {
-                    ?>
-                    <a class="sign-nav__button" href="/src/register.php">Sign Up</a>
-                    <a class="sign-nav__button" href="/src/authorize.php">Log In</a>
-                    <?php
-                    }
-                    ?>
-                </div>
+                            <p class="sign-nav__button"><?= $_SESSION['user']['first_name'] ?></p>
+                            <a class="sign-nav__button" href="/src/logout.php">Log Out</a>
+                        <?php
+                        } else {
+                        ?>
+                            <a class="sign-nav__button" href="/src/register.php">Sign Up</a>
+                            <a class="sign-nav__button" href="/src/authorize.php">Log In</a>
+                        <?php
+                        }
+                        ?>
+                    </div>
                 </div>
             </header>
             <div class="section-heading">
@@ -68,6 +81,7 @@ function addWhere($where, $add, $and = false)
                     <p class="filter__text">Filter</p>
                 </div>
 
+<<<<<<< HEAD
                     <form action="" method="post">
                         <ul class ="forms-wrapper">
                             <li>
@@ -136,8 +150,78 @@ function addWhere($where, $add, $and = false)
                         </div>
                     </form>
             </div>
+=======
+                <form action="" method="post">
+                    <ul class="forms-wrapper">
+                        <li>
+                            <h3 class="column-name">Mark</h3>
+                            <ul class="model-list">
+                                <div>
+                                    <li><input name="model[]" type="checkbox" value="AMC" />AMC</li>
+                                    <li><input name="model[]" type="checkbox" value="Audi" />Audi</li>
+                                    <li><input name="model[]" type="checkbox" value="BMW" />BMW </li>
+                                    <li><input name="model[]" type="checkbox" value="Buick" />Buick </li>
+                                    <li><input name="model[]" type="checkbox" value="Cadillac" />Cadillac </li>
+                                </div>
+                                <div>
+                                    <li><input name="model[]" type="checkbox" value="Capri" />Capri </li>
+                                    <li><input name="model[]" type="checkbox" value="Chevrolet" />Chevrolet </li>
+                                    <li><input name="model[]" type="checkbox" value="Crysler" />Chrysler </li>
+                                    <li><input name="model[]" type="checkbox" value="Datsun" />Datsun</li>
+                                    <li><input name="model[]" type="checkbox" value="Fiat" />Fiat </li>
+                                </div>
+                                <div>
+                                    <li><input name="model[]" type="checkbox" value="Ford" />Ford </li>
+                                    <li><input name="model[]" type="checkbox" value="Honda" />Honda </li>
+                                    <li><input name="model[]" type="checkbox" value="Mazda" />Mazda </li>
+                                    <li><input name="model[]" type="checkbox" value="Mercury" />Mercury </li>
+                                    <li><input name="model[]" type="checkbox" value="Nissan" />Nissan </li>
+                                </div>
+                                <div>
+                                    <li><input name="model[]" type="checkbox" value="Oldsmobile" />Oldsmobile</li>
+                                    <li><input name="model[]" type="checkbox" value="Opel" />Opel </li>
+                                    <li><input name="model[]" type="checkbox" value="Peugeot" />Peugeot </li>
+                                    <li><input name="model[]" type="checkbox" value="Plymouth" />Plymouth </li>
+                                    <li><input name="model[]" type="checkbox" value="Pontiac" />Pontiac </li>
+                                </div>
+                                <div>
+                                    <li><input name="model[]" type="checkbox" value="Renault" />Renault </li>
+                                    <li><input name="model[]" type="checkbox" value="Saab" />Saab </li>
+                                    <li><input name="model[]" type="checkbox" value="Toyota" />Toyota </li>
+                                    <li><input name="model[]" type="checkbox" value="Volkswagen" />Volkswagen </li>
+                                    <li><input name="model[]" type="checkbox" value="Volvo" />Volvo </li>
+                                </div>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3 class="column-name">Year</h3>
+                            <ul class="checkbox-list">
+                                <li><input name="age_interval[]" type="checkbox" value="1960 and 1965" />1960 - 1965</li>
+                                <li><input name="age_interval[]" type="checkbox" value="1966 and 1967" />1966 - 1967</li>
+                                <li><input name="age_interval[]" type="checkbox" value="1965 and 1970" />1965 - 1970</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3 class="column-name">Mileage</h3>
+                            <ul class="checkbox-list">
+                                <li><input name="miles_interval[]" type="checkbox" value="13000 and 20000" />13.000 - 20.000 m</li>
+                                <li><input name="miles_interval[]" type="checkbox" value="21000 and 30000" />21.000 - 30.000 m</li>
+                                <li><input name="miles_interval[]" type="checkbox" value="31000 and 40000" />31.000 - 40.000 m</li>
+                                <li><input name="miles_interval[]" type="checkbox" value="41000 and 50000" />41.000 - 50.000 m</li>
+                                <li><input name="miles_interval[]" type="checkbox" value="51000 and 60000" />51.000 - 60.000 m</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="form-buttons">
+                        <input class="apply-button" name="filter" type="submit" value="Apply" />
+                        <!-- <input class ="apply-button" name ="reset" type="reset" value="Reset"/> -->
+                        <a class="apply-button" href="/src/catalogue.php"> Clear</a>
+                    </div>
+                </form>
+>>>>>>> fixPostFilter
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -150,6 +234,7 @@ function addWhere($where, $add, $and = false)
                     $sql = "select * from `car`";
                     $where = "";
 
+<<<<<<< HEAD
                 //     if ($_POST["model"]) {
                 //         $ids = $_POST["model"];
                 //         $inQuery = implode(",", array_fill(0, count($ids), " '" . htmlspecialchars($_POST["model25"]) . "' "));
@@ -238,34 +323,76 @@ function addWhere($where, $add, $and = false)
                     }
                     if ($_POST["age_interval3"]) {
                         $where = addWhere($where, "manuf_year between " . htmlspecialchars($_POST["age_interval3"]), true) . "";
+=======
+                    if (isset($_POST['model'])) {
+                        $ids = $_POST["model"];
+                        if (count($ids) > 1) {
+                            $where = addBrec($where, true, false);
+                            foreach ($_REQUEST['model'] as $key => $value) {
+                                if ($key == 0) {
+                                    $where = addWhere($where, "model like '" . $value, true, false) . "%'";
+                                } else $where = addWhere($where, "model like '" . $value, false, false) . "%'";
+                            }
+                            $where = addBrec($where, false, true);
+                        } else {
+                            foreach ($_REQUEST['model'] as $key => $value) {
+                                $where = addWhere($where, "model like '" . $value, false, false) . "%'";
+                            }
+                        }
                     }
 
-                    if ($_POST["miles_interval1"]) {
-                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval1"]), true) . "";
+                    if (isset($_POST['age_interval'])) {
+                        $ids = $_POST["age_interval"];
+                        if (count($ids) > 1) {
+                            if (isset($_POST['model'])){
+                                $where .= " AND ";
+                            }
+                            $where = addBrec($where, true, false);
+                            foreach ($_REQUEST['age_interval'] as $key => $value) {
+                                if ($key == 0) {
+                                    $where = addWhere($where, "manuf_year between " . $value, true, false) . "";
+                                } else $where = addWhere($where, "manuf_year between " . $value, false, false) . "";
+                            }
+                            $where = addBrec($where, false, true);
+                        } else {
+                            foreach ($_REQUEST['age_interval'] as $key => $value) {
+                                $where = addWhere($where, "manuf_year between " . $value, false, true) . "";
+                            }
+                        }
+>>>>>>> fixPostFilter
                     }
-                    if ($_POST["miles_interval2"]) {
-                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval2"]), true) . "";
+
+                    if ($_POST["miles_interval"]) {
+                        $ids = $_POST["miles_interval"];
+                        if (count($ids) > 1) {
+                            if (isset($_POST['age_interval'])){
+                                $where .= " AND ";
+                            }
+                            $where = addBrec($where, true, false);
+                            foreach ($_REQUEST['miles_interval'] as $key => $value) {
+                                if ($key == 0) {
+                                    $where = addWhere($where, "mileage between " . $value, true, false) . "";
+                                } else $where = addWhere($where, "mileage between " . $value, false, false) . "";
+                            }
+                            $where = addBrec($where, false, true);
+                        } else {
+                            foreach ($_REQUEST['miles_interval'] as $key => $value) {
+                                $where = addWhere($where, "mileage between " . $value, false, true) . "";
+                            }
+                        }
                     }
-                    if ($_POST["miles_interval3"]) {
-                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval3"]), true) . "";
-                    }
-                    if ($_POST["miles_interval4"]) {
-                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval4"]), true) . "";
-                    }
-                    if ($_POST["miles_interval5"]) {
-                        $where = addWhere($where, "mileage between " . htmlspecialchars($_POST["miles_interval5"]), true) . "";
-                    }
+                    
                     if ($where) {
-                        $sql .= " WHERE $where  and car.status = 'available'";
+                        $sql .= " WHERE $where  AND car.status = 'available'";
                     } else {
                         $sql .= " WHERE ";
                     }
-                    echo '<h4>Получили такой SQL запрос:</h4>' . $sql;
+                    //echo '<h4>Получили такой SQL запрос:</h4>' . $sql;
 
                     $res =  mysqli_query($connection, $sql);
-                    while($car = mysqli_fetch_assoc($res)){
-                    ?>
-                    <div class="catalogue__item">
+                    while ($car = mysqli_fetch_assoc($res)) {
+                ?>
+                        <div class="catalogue__item">
                             <div class="item__image">
                                 <img src="<?php if ($car['photo'] == NULL) {
                                                 echo "/src/img/cars/car-default.jpg";
@@ -276,16 +403,16 @@ function addWhere($where, $add, $and = false)
                                 <li><?php echo $car['price']; ?></li>
                                 <li><?php echo $car['mileage']; ?> miles</li>
                                 <li><?php echo $car['country']; ?></li>
-                                <li><?php echo $car['restor_year']; ?></li>
+                                <li><?php echo $car['manuf_year']; ?></li>
                             </ul>
                             <a href="item.php?item_id=<?= $car['idcar'] ?>" class="more-button">More</a>
-                        </div> 
-                <?php
-                }
+                        </div>
+                    <?php
+                    }
                 } else {
                     while ($cars = mysqli_fetch_assoc($carselect)) {
 
-                ?>
+                    ?>
                         <div class="catalogue__item">
                             <div class="item__image">
                                 <img src="<?php if ($cars['photo'] == NULL) {
