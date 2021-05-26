@@ -74,11 +74,11 @@ function addWhere($where, $add, $and = false)
                                 <h3 class="column-name">Mark</h3>
                                 <ul class ="model-list">
                                     <div>
-                                    <li><input name="model[]" type="checkbox" value="AMC" />AMC</li>
-                                    <li><input name="model[]" type="checkbox" value="Audi" />Audi</li>
-                                    <li><input name="model[]" type="checkbox" value="BMW" />BMW </li>
-                                    <li><input name="model[]" type="checkbox" value="Buick" />Buick </li>
-                                    <li><input name="model[]" type="checkbox" value="Cadillac" />Cadillac </li>
+                                    <li><input name="model1" type="checkbox" value="AMC" />AMC</li>
+                                    <li><input name="model2" type="checkbox" value="Audi" />Audi</li>
+                                    <li><input name="model3" type="checkbox" value="BMW" />BMW </li>
+                                    <li><input name="model4" type="checkbox" value="Buick" />Buick </li>
+                                    <li><input name="model5" type="checkbox" value="Cadillac" />Cadillac </li>
                                     </div>
                                     <div>
                                     <li><input name="model6" type="checkbox" value="Capri" />Capri </li>
@@ -150,87 +150,85 @@ function addWhere($where, $add, $and = false)
                     $sql = "select * from `car`";
                     $where = "";
 
-                    if ($_POST["model"]) {
-                        $ids = $_POST["model"];
-                        $inQuery = implode(",", array_fill(0, count($ids), " '" . htmlspecialchars($_POST["model25"]) . "' "));
-                        $where = addWhere($where, "mark in (" . $inQuery . ")");
-                  // $where = addWhere($where, "model like '" . $inQuery, false) . "%'";
+                //     if ($_POST["model"]) {
+                //         $ids = $_POST["model"];
+                //         $inQuery = implode(",", array_fill(0, count($ids), " '" . htmlspecialchars($_POST["model25"]) . "' "));
+                //         $where = addWhere($where, "mark in (" . $inQuery . ")");
+                //   // $where = addWhere($where, "model like '" . $inQuery, false) . "%'";
+                //     }
+
+                    if ($_POST["model2"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model2"]), false) . "%'";
                     }
-
-
-
-                    // if ($_POST["model2"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model2"]), false) . "%'";
-                    // }
-                    // if ($_POST["model3"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model3"]), false) . "%'";
-                    // }
-                    // if ($_POST["model4"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model4"]), false) . "%'";
-                    // }
-                    // if ($_POST["model5"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model5"]), false) . "%'";
-                    // }
-                    // if ($_POST["model6"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model6"]), false) . "%'";
-                    // }
-                    // if ($_POST["model7"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model7"]), false) . "%'";
-                    // }
-                    // if ($_POST["model8"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model8"]), false) . "%'";
-                    // }
-                    // if ($_POST["model9"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model9"]), false) . "%'";
-                    // }
-                    // if ($_POST["model10"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model10"]), false) . "%'";
-                    // }
-                    // if ($_POST["model11"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model11"]), false) . "%'";
-                    // }
-                    // if ($_POST["model12"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model12"]), false) . "%'";
-                    // }
-                    // if ($_POST["model13"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model13"]), false) . "%'";
-                    // }
-                    // if ($_POST["model14"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model14"]), false) . "%'";
-                    // }
-                    // if ($_POST["model15"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model15"]), false) . "%'";
-                    // }
-                    // if ($_POST["model16"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model16"]), false) . "%'";
-                    // }
-                    // if ($_POST["model17"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model17"]), false) . "%'";
-                    // }
-                    // if ($_POST["model18"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model18"]), false) . "%'";
-                    // }
-                    // if ($_POST["model19"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model19"]), false) . "%'";
-                    // }
-                    // if ($_POST["model20"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model20"]), false) . "%'";
-                    // }
-                    // if ($_POST["model21"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model21"]), false) . "%'";
-                    // }
-                    // if ($_POST["model22"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model22"]), false) . "%'";
-                    // }
-                    // if ($_POST["model23"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model23"]), false) . "%'";
-                    // }
-                    // if ($_POST["model24"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model24"]), false) . "%'";
-                    // }
-                    // if ($_POST["model25"]) {
-                    //     $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model25"]), false) . "%'";
-                    // }
+                    if ($_POST["model3"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model3"]), false) . "%'";
+                    }
+                    if ($_POST["model4"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model4"]), false) . "%'";
+                    }
+                    if ($_POST["model5"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model5"]), false) . "%'";
+                    }
+                    if ($_POST["model6"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model6"]), false) . "%'";
+                    }
+                    if ($_POST["model7"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model7"]), false) . "%'";
+                    }
+                    if ($_POST["model8"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model8"]), false) . "%'";
+                    }
+                    if ($_POST["model9"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model9"]), false) . "%'";
+                    }
+                    if ($_POST["model10"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model10"]), false) . "%'";
+                    }
+                    if ($_POST["model11"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model11"]), false) . "%'";
+                    }
+                    if ($_POST["model12"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model12"]), false) . "%'";
+                    }
+                    if ($_POST["model13"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model13"]), false) . "%'";
+                    }
+                    if ($_POST["model14"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model14"]), false) . "%'";
+                    }
+                    if ($_POST["model15"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model15"]), false) . "%'";
+                    }
+                    if ($_POST["model16"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model16"]), false) . "%'";
+                    }
+                    if ($_POST["model17"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model17"]), false) . "%'";
+                    }
+                    if ($_POST["model18"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model18"]), false) . "%'";
+                    }
+                    if ($_POST["model19"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model19"]), false) . "%'";
+                    }
+                    if ($_POST["model20"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model20"]), false) . "%'";
+                    }
+                    if ($_POST["model21"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model21"]), false) . "%'";
+                    }
+                    if ($_POST["model22"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model22"]), false) . "%'";
+                    }
+                    if ($_POST["model23"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model23"]), false) . "%'";
+                    }
+                    if ($_POST["model24"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model24"]), false) . "%'";
+                    }
+                    if ($_POST["model25"]) {
+                        $where = addWhere($where, "model like '" . htmlspecialchars($_POST["model25"]), false) . "%'";
+                    }
 
                     if ($_POST["age_interval1"]) {
                         $where = addWhere($where, "manuf_year between " . htmlspecialchars($_POST["age_interval1"]), true) . "";
