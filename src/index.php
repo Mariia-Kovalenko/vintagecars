@@ -5,12 +5,6 @@ require_once "connect.php";
 $carselect = mysqli_query($connection, "select idcar, model, price, photo, mileage, country.country, restor_year from car join country on car.country_idcountry = country.idcountry limit 9");
 $supplierselect = mysqli_query($connection, "select logo from supplier limit 6");
 
-// $clientselect = mysqli_query($connection, "select login from clients where first_name = 'Toby'");
-
-// if($client = mysqli_fetch_assoc($clientselect)){
-//     echo $client['login'];
-// }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
